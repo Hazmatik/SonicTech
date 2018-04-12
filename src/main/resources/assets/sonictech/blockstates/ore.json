@@ -1,15 +1,15 @@
 {
     "variants":
     {
-        "variant=aluminium": {"model": "sonictech:ore_aluminium"},
-        "variant=antimony": {"model": "sonictech:ore_antimony"},
-        "variant=chromite": {"model": "sonictech:ore_chromite"},
-        "variant=copper": {"model": "sonictech:ore_copper"},
-        "variant=lead": {"model": "sonictech:ore_lead"},
-        "variant=magnesite": {"model": "sonictech:ore_magnesite"},
-        "variant=molybdenum": {"model": "sonictech:ore_molybdenum"},
-        "variant=silver": {"model": "sonictech:ore_silver"},
-        "variant=tin": {"model": "sonictech:ore_tin"},
-        "variant=zinc": {"model": "sonictech:ore_zinc"}
+        "type=aluminium": {"model": "sonictech:ore_aluminium"},
+        "type=antimony": {"model": "sonictech:ore_antimony"},
+        "type=chromite": {"model": "sonictech:ore_chromite"},
+        "type=copper": {"model": "sonictech:ore_copper"},
+        "type=lead": {"model": "sonictech:ore_lead"},
+        "type=magnesite": {"model": "sonictech:ore_magnesite"},
+        "type=molybdenum": {"model": "sonictech:ore_molybdenum"},
+        "type=silver": {"model": "sonictech:ore_silver"},
+        "type=tin": {"model": "sonictech:ore_tin"},
+        "type=zinc": {"model": "sonictech:ore_zinc"}
     }
 }
