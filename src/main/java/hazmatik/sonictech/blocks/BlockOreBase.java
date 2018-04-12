@@ -35,6 +35,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		setResistance(5.0F);
 		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
+		setCreativeTab(SonicTech.sonictechtab);
 		
 		this.name = name;
 		BlockInit.BLOCKS.add(this);
