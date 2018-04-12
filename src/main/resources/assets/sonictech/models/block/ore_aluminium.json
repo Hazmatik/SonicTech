@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "sonictech:blocks/ore_aluminium"
+    }
+}
