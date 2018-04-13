@@ -2,6 +2,7 @@ package hazmatik.sonictech.util.handlers;
 
 import hazmatik.sonictech.init.BlockInit;
 import hazmatik.sonictech.init.ItemInit;
+import hazmatik.sonictech.util.SmeltingRecipes;
 import hazmatik.sonictech.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -52,6 +53,6 @@ public class RegistryHandler
 	public static void initRegistries()
 	{
 		//Register GUI Handler
-		//Register SmeltingRecipes
+		SmeltingRecipes.init();
 	}
 }

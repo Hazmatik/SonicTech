@@ -1,0 +1,10 @@
+{
+    "variants":
+    {
+        "type=polished": {"model": "sonictech:chromitite_polished"},
+        "type=brick": {"model": "sonictech:chromitite_brick"},
+        "type=brick_mossy": {"model": "sonictech:chromitite_brick_mossy"},
+        "type=brick_cracked": {"model": "sonictech:chromitite_brick_cracked"},
+        "type=brick_carved": {"model": "sonictech:chromitite_brick_carved"}
+    }
+}

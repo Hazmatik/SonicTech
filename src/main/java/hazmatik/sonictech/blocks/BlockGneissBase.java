@@ -1,6 +1,7 @@
 package hazmatik.sonictech.blocks;
 
 import hazmatik.sonictech.SonicTech;
+import hazmatik.sonictech.blocks.BlockChromititeBase.RockType;
 import hazmatik.sonictech.blocks.item.ItemBlockVariants;
 import hazmatik.sonictech.init.BlockInit;
 import hazmatik.sonictech.init.ItemInit;
@@ -18,42 +19,28 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
-public class BlockOreBase extends Block implements IHasModel, IMetaName
+public class BlockGneissBase extends Block implements IHasModel, IMetaName
 {
-	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
+public static final PropertyEnum<RockType> VARIANT = PropertyEnum.create("type", RockType.class);
 	
 	private String name;
 	
-	public BlockOreBase(String name) 
+	public BlockGneissBase(String name, float hardness,  String toolClass, int level)
 	{
 		super(Material.ROCK);
 		setUnlocalizedName(name);
 		setRegistryName(name);
+		setHardness(hardness);
 		setResistance(5.0F);
 		setSoundType(SoundType.STONE);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, RockType.POLISHED));
+		setHarvestLevel(toolClass, level);
 		setCreativeTab(SonicTech.sonictechtab);
-		
-		setHarvestLevel("pickaxe", 2);
-		setHarvestLevel("pickaxe", 2, getStateFromMeta(Type.CHROMITE.getMetadata()));
 		
 		this.name = name;
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
-	}
-	
-	@Override
-	public float getBlockHardness(IBlockState state, World worldIn, BlockPos pos) 
-	{
-		float hardness = 3.0F;
-		if(state == state.withProperty(VARIANT, Type.CHROMITE));
-		{
-			hardness = 10.0F;
-		}
-		return hardness;
 	}
 	
 	@Override
@@ -65,7 +52,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		for(int i = 0; i < RockType.METADATA_LOOKUP.length; i++)
 		{
 			items.add(new ItemStack(this, 1, i));
 		}
@@ -74,7 +61,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	@Override
 	public IBlockState getStateFromMeta(int meta) 
 	{
-		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, RockType.byMetadata(meta));
 	}
 	
 	@Override
@@ -90,41 +77,36 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	}
 	
 	@Override
-	public String getSpecialName(ItemStack stack) 
+	public String getSpecialName(ItemStack stack)
 	{
-		return Type.values()[stack.getItemDamage()].getName();
+		return RockType.values()[stack.getItemDamage()].getName();
 	}
 	
 	@Override
 	public void registerModels() 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		for(int i = 0; i < RockType.METADATA_LOOKUP.length; i++)
 		{
-			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "ore_" + Type.values()[i].getName(), "inventory");
+			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "gneiss_" + RockType.values()[i].getName(), "inventory");
 		}
 	}
 	
-	public enum Type implements IStringSerializable
+	public enum RockType implements IStringSerializable
 	{
-		COPPER(0, "copper"),
-		ALUMINIUM(1, "aluminium"),
-		ZINC(2, "zinc"),
-		TIN(3, "tin"),
-		ANTIMONY(4, "antimony"),
-		MOLYBDENUM(5, "molybdenum"),
-		LEAD(6, "lead"),
-		SILVER(7, "silver"),
-		CHROMITE(8, "chromite"),
-		MAGNESITE(9, "magnesite");
+		POLISHED(0, "polished"),
+		BRICK(1, "brick"),
+		MOSSY(2, "brick_mossy"),
+		CRACKED(3, "brick_cracked"),
+		CARVED(4, "brick_carved");
 		
-		private static final Type[] METADATA_LOOKUP = new Type[values().length];
+		private static final RockType[] METADATA_LOOKUP = new RockType[values().length];
 		private final int metadata;
 		private final String name;
 		
-		Type(int metadata, String name)
+		RockType(int metadata, String name)
 		{
 			this.metadata = metadata;
-			this.name= name;
+			this.name = name;
 		}
 		
 		public int getMetadata()
@@ -138,7 +120,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 			return this.name;
 		}
 		
-		public static Type byMetadata(int metadata)
+		public static RockType byMetadata(int metadata)
 		{
 			if(metadata < 0 || metadata >= METADATA_LOOKUP.length)
 			{
@@ -149,21 +131,10 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		
 		static
 		{
-			for(Type type: values())
+			for(RockType type: values())
 			{
 				METADATA_LOOKUP[type.getMetadata()] = type;
 			}
 		}
 	}
-	
-	public static ItemStack oreCopper;
-	public static ItemStack oreAluminium;
-	public static ItemStack oreZinc;
-	public static ItemStack oreTin;
-	public static ItemStack oreAntimony;
-	public static ItemStack oreMolybdenum;
-	public static ItemStack oreLead;
-	public static ItemStack oreSilver;
-	public static ItemStack oreChromite;
-	public static ItemStack oreMagnesite;
 }

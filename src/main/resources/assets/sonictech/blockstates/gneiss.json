@@ -1,0 +1,10 @@
+{
+    "variants":
+    {
+        "type=polished": {"model": "sonictech:gneiss_polished"},
+        "type=brick": {"model": "sonictech:gneiss_brick"},
+        "type=brick_mossy": {"model": "sonictech:gneiss_brick_mossy"},
+        "type=brick_cracked": {"model": "sonictech:gneiss_brick_cracked"},
+        "type=brick_carved": {"model": "sonictech:gneiss_brick_carved"}
+    }
+}

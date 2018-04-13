@@ -41,7 +41,7 @@ public class SonicTech
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
 	{
-		
+		RegistryHandler.initRegistries();
 	}
 	
 	@EventHandler

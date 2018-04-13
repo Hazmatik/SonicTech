@@ -1,0 +1,37 @@
+itemGroup.SonicTech=Sonic Tech
+
+tile.ore_copper.name=Copper Ore
+tile.ore_aluminium.name=Aluminium Ore
+tile.ore_antimony.name=Antimony Ore
+tile.ore_molybdenum.name=Molybdenum Ore
+tile.ore_zinc.name=Zinc Ore
+tile.ore_magnesite.name=Magnesite Ore
+tile.ore_tin.name=Tin Ore
+tile.ore_lead.name=Lead Ore
+tile.ore_silver.name=Silver Ore
+tile.ore_chromite.name=Chromite Ore
+tile.stone_chromitite.name=Chromitite
+tile.stone_gneiss.name=Gneiss
+tile.chromitite_polished.name=Polished Chromitite
+tile.chromitite_brick.name=Chromitite Bricks
+tile.chromitite_brick_mossy.name=Mossy Chromitite Bricks
+tile.chromitite_brick_cracked.name=Cracked Chromitite Bricks
+tile.chromitite_brick_carved.name=Chiseled Chromitite Bricks
+tile.chromitite_cobblestone.name=Chromitite Cobblestone
+tile.gneiss_polished.name=Polished Gneiss
+tile.gneiss_brick.name=Gneiss Bricks
+tile.gneiss_brick_mossy.name=Mossy Gneiss Bricks
+tile.gneiss_brick_cracked.name=Cracked Gneiss Bricks
+tile.gneiss_brick_carved.name=Chiseled Gneiss Bricks
+tile.gneiss_cobblestone.name=Gneiss Cobblestone
+
+item.ingot_aluminium.name=Aluminium Ingot
+item.ingot_antimony.name=Antimony Ingot
+item.ingot_copper.name=Copper Ingot
+item.ingot_zinc.name=Zinc Ingot
+item.ingot_tin.name=Tin Ingot
+item.ingot_molybdenum.name=Molybdenum Ingot
+item.ingot_lead.name=Lead Ingot
+item.ingot_silver.name=Silver Ingot
+item.ingot_chromium.name=Chromium Ingot
+item.ingot_magnesium.name=Magnesium Ingot
