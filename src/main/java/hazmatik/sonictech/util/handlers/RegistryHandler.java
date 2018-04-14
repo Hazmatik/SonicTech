@@ -56,7 +56,7 @@ public class RegistryHandler
 	
 	public static void initRegistries()
 	{
-		//Register GUI Handler
+		OreDictionaryHandler.registerOreDictionary();
 		SmeltingRecipes.init();
 	}
 }
