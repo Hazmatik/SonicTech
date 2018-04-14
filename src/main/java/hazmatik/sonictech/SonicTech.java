@@ -36,6 +36,7 @@ public class SonicTech
 		RegistryHandler.preInitRegistries();
 		File directory = event.getModConfigurationDirectory();
 		config = new Configuration(new File(directory.getPath(), "sonictech.cfg"));
+		Config.readConfig();
 	}
 	
 	@EventHandler

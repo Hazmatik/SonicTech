@@ -2,6 +2,7 @@ package hazmatik.sonictech.world.gen;
 
 import java.util.Random;
 
+import hazmatik.sonictech.Config;
 import hazmatik.sonictech.blocks.BlockSTStone;
 import hazmatik.sonictech.blocks.BlockSTStone.StoneType;
 import hazmatik.sonictech.init.BlockInit;
@@ -18,12 +19,16 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGeneratorStone implements IWorldGenerator
 {
 	private WorldGenerator stone_gneiss;
-	private WorldGenerator stone_chromitite;
+	private WorldGenerator stone_chromitite_end;
+	private WorldGenerator stone_chromitite_ow;
+	private WorldGenerator stone_chromitite_nether;
 	
 	public WorldGeneratorStone()
 	{
-		stone_chromitite = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.CHROMITITE), 12, BlockMatcher.forBlock(Blocks.END_STONE));
-		stone_gneiss = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.GNEISS), 25);
+		stone_chromitite_ow = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.CHROMITITE), Config.chromititeOWSize);
+		stone_chromitite_end = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.CHROMITITE), Config.chromititeEndSize, BlockMatcher.forBlock(Blocks.END_STONE));
+		stone_chromitite_nether = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.CHROMITITE), Config.chromititeNetherSize, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		stone_gneiss = new WorldGenMinable(BlockInit.STONE.getDefaultState().withProperty(BlockSTStone.VARIANT, StoneType.GNEISS), Config.gneissSize);
 	}
 	
 	@Override
@@ -33,11 +38,18 @@ public class WorldGeneratorStone implements IWorldGenerator
 		switch(world.provider.getDimension())
 		{
 		case -1:
-			break;
+			if(Config.chromititeNether)
+			{
+				runGenerator(stone_chromitite_nether, world, random, chunkX, chunkZ, Config.chromititeNetherChance, Config.chromititeNetherMinY, Config.chromititeNetherMaxY);
+			}
 		case 0:
-			runGenerator(stone_gneiss, world, random, chunkX, chunkZ, 25, 0, 128);
+			if(Config.chromititeOverworld)
+			{
+				runGenerator(stone_chromitite_ow, world, random, chunkX, chunkZ, Config.chromititeOWChance, Config.chromititeOWMinY, Config.chromititeOWMaxY);
+			}
+			runGenerator(stone_gneiss, world, random, chunkX, chunkZ, Config.gneissChance, Config.gneissMinY, Config.gneissMaxY);
 		case 1:
-			runGenerator(stone_chromitite, world, random, chunkX, chunkZ, 15, 0, 128);
+			runGenerator(stone_chromitite_end, world, random, chunkX, chunkZ, Config.chromititeEndChance, Config.chromititeEndMinY, Config.chromititeEndMaxY);
 		}
 	}
 	

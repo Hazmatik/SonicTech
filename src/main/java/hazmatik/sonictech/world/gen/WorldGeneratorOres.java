@@ -2,6 +2,8 @@ package hazmatik.sonictech.world.gen;
 
 import java.util.Random;
 
+import hazmatik.sonictech.Config;
+import hazmatik.sonictech.SonicTech;
 import hazmatik.sonictech.blocks.BlockOreBase;
 import hazmatik.sonictech.blocks.BlockOreBase.Type;
 import hazmatik.sonictech.init.BlockInit;
@@ -31,16 +33,16 @@ public class WorldGeneratorOres implements IWorldGenerator
 	
 	public WorldGeneratorOres()
 	{
-		ore_aluminium = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ALUMINIUM), 10);
-		ore_antimony = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ANTIMONY), 6, new AndesitePredicate());
-		ore_chromite = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.CHROMITE), 6, new ChromititePredicate());
-		ore_copper = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.COPPER), 10);
-		ore_lead = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.LEAD), 6);
-		ore_magnesite = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.MAGNESITE), 6, new DioritePredicate());
-		ore_molybdenum = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.MOLYBDENUM), 6, new GranitePredicate());
-		ore_silver = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.SILVER), 6);
-		ore_tin = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.TIN), 8);
-		ore_zinc = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ZINC), 6, new GneissPredicate());
+		ore_aluminium = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ALUMINIUM), Config.aluminiumSize);
+		ore_antimony = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ANTIMONY), Config.antimonySize, new AndesitePredicate());
+		ore_chromite = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.CHROMITE), Config.chromiteSize, new ChromititePredicate());
+		ore_copper = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.COPPER), Config.copperSize);
+		ore_lead = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.LEAD), Config.leadSize);
+		ore_magnesite = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.MAGNESITE), Config.magnesiteSize, new DioritePredicate());
+		ore_molybdenum = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.MOLYBDENUM), Config.molybdenumSize, new GranitePredicate());
+		ore_silver = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.SILVER), Config.silverSize);
+		ore_tin = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.TIN), Config.tinSize);
+		ore_zinc = new WorldGenMinable(BlockInit.ORE.getDefaultState().withProperty(BlockOreBase.VARIANT, Type.ZINC), Config.zincSize, new GneissPredicate());
 	}
 	
 	@Override
@@ -50,15 +52,28 @@ public class WorldGeneratorOres implements IWorldGenerator
 		switch(world.provider.getDimension())
 		{
 		case -1:
+			if(Config.chromititeNether)
+			{
+				runGenerator(ore_chromite, world, random, chunkX, chunkZ, Config.chromiteNetherChance, 0, 256);
+			}
 			break;
 		case 0:
-			runGenerator(ore_antimony, world, random, chunkX, chunkZ, 50, 32, 100);
-			runGenerator(ore_molybdenum, world, random, chunkX, chunkZ, 50, 32, 100);
-			runGenerator(ore_magnesite, world, random, chunkX, chunkZ, 50, 32, 100);
-			runGenerator(ore_zinc, world, random, chunkX, chunkZ, 50, 32, 100);
+			if(Config.chromititeOverworld)
+			{
+				runGenerator(ore_chromite, world, random, chunkX, chunkZ, Config.chromiteOWChance, 0, 256);
+			}
+			runGenerator(ore_aluminium, world, random, chunkX, chunkZ, Config.aluminiumChance, Config.aluminiumMinY, Config.aluminiumMaxY);
+			runGenerator(ore_antimony, world, random, chunkX, chunkZ, Config.antimonyChance, Config.antimonyMinY, Config.antimonyMaxY);
+			runGenerator(ore_copper, world, random, chunkX, chunkZ, Config.copperChance, Config.copperMinY, Config.copperMaxY);
+			runGenerator(ore_lead, world, random, chunkX, chunkZ, Config.leadChance, Config.leadMinY, Config.leadMaxY);
+			runGenerator(ore_magnesite, world, random, chunkX, chunkZ, Config.magnesiteChance, Config.magnesiteMinY, Config.magnesiteMaxY);
+			runGenerator(ore_molybdenum, world, random, chunkX, chunkZ, Config.molybdenumChance, Config.molybdenumMinY, Config.molybdenumMaxY);
+			runGenerator(ore_silver, world, random, chunkX, chunkZ, Config.silverChance, Config.silverMinY, Config.silverMaxY);
+			runGenerator(ore_tin, world, random, chunkX, chunkZ, Config.tinChance, Config.tinMinY, Config.tinMaxY);
+			runGenerator(ore_zinc, world, random, chunkX, chunkZ, Config.zincChance, Config.zincMinY, Config.zincMaxY);
 			break;
 		case 1:
-			runGenerator(ore_chromite, world, random, chunkX, chunkZ, 50, 0, 128);
+			runGenerator(ore_chromite, world, random, chunkX, chunkZ, Config.chromiteEndChance, 0, 256);
 		}
 	}
 	
