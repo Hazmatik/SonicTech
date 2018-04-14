@@ -1,0 +1,15 @@
+{
+    "variants":
+    {
+        "type=aluminium": {"model": "sonictech:block_aluminium"},
+        "type=antimony": {"model": "sonictech:block_antimony"},
+        "type=chromium": {"model": "sonictech:block_chromium"},
+        "type=copper": {"model": "sonictech:block_copper"},
+        "type=lead": {"model": "sonictech:block_lead"},
+        "type=magnesium": {"model": "sonictech:block_magnesium"},
+        "type=molybdenum": {"model": "sonictech:block_molybdenum"},
+        "type=silver": {"model": "sonictech:block_silver"},
+        "type=tin": {"model": "sonictech:block_tin"},
+        "type=zinc": {"model": "sonictech:block_zinc"}
+    }
+}

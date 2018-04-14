@@ -21,24 +21,24 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockOreBase extends Block implements IHasModel, IMetaName
+public class BlockMetal extends Block implements IHasModel, IMetaName
 {
 	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 	
 	private String name;
 	
-	public BlockOreBase(String name) 
+	public BlockMetal(String name)
 	{
-		super(Material.ROCK);
+		super(Material.IRON);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setResistance(5.0F);
-		setSoundType(SoundType.STONE);
+		setResistance(5.0f);
+		setSoundType(SoundType.METAL);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
 		setCreativeTab(SonicTech.sonictechtab);
 		
 		setHarvestLevel("pickaxe", 2);
-		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.CHROMITE.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.CHROMIUM.getMetadata()));
 		
 		this.name = name;
 		BlockInit.BLOCKS.add(this);
@@ -49,7 +49,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	public float getBlockHardness(IBlockState state, World worldIn, BlockPos pos) 
 	{
 		float hardness = 3.0F;
-		if(state == state.withProperty(VARIANT, Type.CHROMITE))
+		if(state == state.withProperty(VARIANT, Type.CHROMIUM))
 		{
 			hardness = 10.0F;
 		}
@@ -63,7 +63,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	}
 	
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) 
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) 
 	{
 		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
 		{
@@ -84,7 +84,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	}
 	
 	@Override
-	public int damageDropped(IBlockState state)
+	public int damageDropped(IBlockState state) 
 	{
 		return state.getValue(VARIANT).getMetadata();
 	}
@@ -100,7 +100,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	{
 		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
 		{
-			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "ore_" + Type.values()[i].getName(), "inventory");
+			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "block_" + Type.values()[i].getName(), "inventory");
 		}
 	}
 	
@@ -114,8 +114,8 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		MOLYBDENUM(5, "molybdenum"),
 		LEAD(6, "lead"),
 		SILVER(7, "silver"),
-		CHROMITE(8, "chromite"),
-		MAGNESITE(9, "magnesite");
+		CHROMIUM(8, "chromium"),
+		MAGNESIUM(9, "magnesium");
 		
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -124,7 +124,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		Type(int metadata, String name)
 		{
 			this.metadata = metadata;
-			this.name= name;
+			this.name = name;
 		}
 		
 		public int getMetadata()
@@ -155,15 +155,4 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 			}
 		}
 	}
-	
-	public static ItemStack oreCopper;
-	public static ItemStack oreAluminium;
-	public static ItemStack oreZinc;
-	public static ItemStack oreTin;
-	public static ItemStack oreAntimony;
-	public static ItemStack oreMolybdenum;
-	public static ItemStack oreLead;
-	public static ItemStack oreSilver;
-	public static ItemStack oreChromite;
-	public static ItemStack oreMagnesite;
 }

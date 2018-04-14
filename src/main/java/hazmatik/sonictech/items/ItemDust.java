@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 
-public class ItemIngot extends Item implements IHasModel, IMetaName
+public class ItemDust extends Item implements IHasModel, IMetaName
 {
 	private String name;
 	
-	public ItemIngot(String name)
+	public ItemDust(String name)
 	{
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -45,16 +45,15 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 	{
 		return super.getUnlocalizedName() + "_" + this.getSpecialName(stack);
 	}
-
+	
 	@Override
 	public void registerModels() 
 	{
 		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
 		{
-			SonicTech.proxy.registerVariantRenderer(this, i, "ingot_" + Type.values()[i].getName(), "inventory");
+			SonicTech.proxy.registerVariantRenderer(this, i, "dust_" + Type.values()[i].getName(), "inventory");
 		}
 	}
-	
 	
 	public enum Type implements IStringSerializable
 	{
@@ -67,7 +66,10 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 		LEAD(6, "lead"),
 		SILVER(7, "silver"),
 		CHROMIUM(8, "chromium"),
-		MAGNESIUM(9, "magnesium");
+		MAGNESIUM(9, "magnesium"),
+		//Vanilla Metals
+		IRON(10, "iron"),
+		GOLD(11, "gold");
 		
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -101,7 +103,7 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 		
 		static
 		{
-			for(Type type: values())
+			for(Type type : values())
 			{
 				METADATA_LOOKUP[type.getMetadata()] = type;
 			}

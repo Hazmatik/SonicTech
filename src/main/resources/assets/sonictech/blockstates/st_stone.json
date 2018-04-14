@@ -1,0 +1,19 @@
+{
+    "variants":
+    {
+        "type=chromitite": {"model": "sonictech:st_stone_chromitite"},
+        "type=chromitite_cobble": {"model": "sonictech:st_stone_chromitite_cobble"},
+        "type=chromitite_polished": {"model": "sonictech:st_stone_chromitite_polished"},
+        "type=chromitite_brick": {"model": "sonictech:st_stone_chromitite_brick"},
+        "type=chromitite_brick_mossy": {"model": "sonictech:st_stone_chromitite_brick_mossy"},
+        "type=chromitite_brick_cracked": {"model": "sonictech:st_stone_chromitite_brick_cracked"},
+        "type=chromitite_brick_carved": {"model": "sonictech:st_stone_chromitite_brick_carved"},
+        "type=gneiss": {"model": "sonictech:st_stone_gneiss"},
+        "type=gneiss_cobble": {"model": "sonictech:st_stone_gneiss_cobble"},
+        "type=gneiss_polished": {"model": "sonictech:st_stone_gneiss_polished"},
+        "type=gneiss_brick": {"model": "sonictech:st_stone_gneiss_brick"},
+        "type=gneiss_brick_mossy": {"model": "sonictech:st_stone_gneiss_brick_mossy"},
+        "type=gneiss_brick_cracked": {"model": "sonictech:st_stone_gneiss_brick_cracked"},
+        "type=gneiss_brick_carved": {"model": "sonictech:st_stone_gneiss_brick_carved"}
+    }
+}

@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 
-public class ItemIngot extends Item implements IHasModel, IMetaName
+public class ItemNugget extends Item implements IHasModel, IMetaName
 {
 	private String name;
 	
-	public ItemIngot(String name)
+	public ItemNugget(String name)
 	{
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -28,14 +28,14 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		for(int i = 0; i< Type.METADATA_LOOKUP.length; i++)
 		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 	
 	@Override
-	public String getSpecialName(ItemStack stack)
+	public String getSpecialName(ItemStack stack) 
 	{
 		return Type.values()[stack.getItemDamage()].getName();
 	}
@@ -45,16 +45,15 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 	{
 		return super.getUnlocalizedName() + "_" + this.getSpecialName(stack);
 	}
-
+	
 	@Override
 	public void registerModels() 
 	{
 		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
 		{
-			SonicTech.proxy.registerVariantRenderer(this, i, "ingot_" + Type.values()[i].getName(), "inventory");
+			SonicTech.proxy.registerVariantRenderer(this, i, "nugget_" + Type.values()[i].getName(), "inventory");
 		}
 	}
-	
 	
 	public enum Type implements IStringSerializable
 	{
@@ -101,7 +100,7 @@ public class ItemIngot extends Item implements IHasModel, IMetaName
 		
 		static
 		{
-			for(Type type: values())
+			for(Type type : values())
 			{
 				METADATA_LOOKUP[type.getMetadata()] = type;
 			}

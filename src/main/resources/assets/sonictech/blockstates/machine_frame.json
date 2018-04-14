@@ -1,0 +1,9 @@
+{
+    "variants":
+    {
+        "type=basic": {"model": "sonictech:machine_frame_basic"},
+        "type=improved": {"model": "sonictech:machine_frame_improved"},
+        "type=advanced": {"model": "sonictech:machine_frame_advanced"},
+        "type=perfected": {"model": "sonictech:machine_frame_perfected"}
+    }
+}

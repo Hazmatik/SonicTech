@@ -4,12 +4,15 @@ import hazmatik.sonictech.init.BlockInit;
 import hazmatik.sonictech.init.ItemInit;
 import hazmatik.sonictech.util.SmeltingRecipes;
 import hazmatik.sonictech.util.interfaces.IHasModel;
+import hazmatik.sonictech.world.gen.WorldGeneratorOres;
+import hazmatik.sonictech.world.gen.WorldGeneratorStone;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler 
@@ -47,7 +50,8 @@ public class RegistryHandler
 	
 	public static void preInitRegistries()
 	{
-		//Register World Generators Here
+		GameRegistry.registerWorldGenerator(new WorldGeneratorStone(), 0);
+		GameRegistry.registerWorldGenerator(new WorldGeneratorOres(), 10);
 	}
 	
 	public static void initRegistries()
