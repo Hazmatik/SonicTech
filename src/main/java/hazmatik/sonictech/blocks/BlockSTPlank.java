@@ -14,46 +14,34 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockOreBase extends Block implements IHasModel, IMetaName
+public class BlockSTPlank extends Block implements IHasModel, IMetaName
 {
-	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
+	public static final PropertyEnum<WoodType> VARIANT = PropertyEnum.create("type", WoodType.class);
 	
 	private String name;
 	
-	public BlockOreBase(String name) 
+	public BlockSTPlank(String name)
 	{
-		super(Material.ROCK);
+		super(Material.WOOD);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setResistance(5.0F);
-		setSoundType(SoundType.STONE);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
+		setSoundType(SoundType.WOOD);
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, WoodType.MAGNOLIA));
 		setCreativeTab(SonicTech.sonictechtab);
 		
-		setHarvestLevel("pickaxe", 2);
-		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.CHROMITE.getMetadata()));
-		
 		this.name = name;
+		
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
-	}
-	
-	@Override
-	public float getBlockHardness(IBlockState state, World worldIn, BlockPos pos) 
-	{
-		float hardness = 3.0F;
-		if(state == state.withProperty(VARIANT, Type.CHROMITE))
-		{
-			hardness = 10.0F;
-		}
-		return hardness;
 	}
 	
 	@Override
@@ -63,9 +51,9 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	}
 	
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) 
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		for(int i = 0; i < WoodType.METADATA_LOOKUP.length; i++)
 		{
 			items.add(new ItemStack(this, 1, i));
 		}
@@ -74,7 +62,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	@Override
 	public IBlockState getStateFromMeta(int meta) 
 	{
-		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, WoodType.byMetadata(meta));
 	}
 	
 	@Override
@@ -84,47 +72,50 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 	}
 	
 	@Override
-	public int damageDropped(IBlockState state)
+	public int damageDropped(IBlockState state) 
 	{
 		return state.getValue(VARIANT).getMetadata();
 	}
 	
 	@Override
-	public String getSpecialName(ItemStack stack) 
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
+			EntityPlayer player) 
 	{
-		return Type.values()[stack.getItemDamage()].getName();
+		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
+	}
+	
+	@Override
+	public String getSpecialName(ItemStack stack)
+	{
+		return WoodType.values()[stack.getItemDamage()].getName();
 	}
 	
 	@Override
 	public void registerModels() 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		for(int i = 0; i < WoodType.METADATA_LOOKUP.length; i++)
 		{
-			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "ore_" + Type.values()[i].getName(), "inventory");
+			SonicTech.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "planks_" + WoodType.values()[i].getName(), "inventory");
 		}
 	}
 	
-	public enum Type implements IStringSerializable
+	public enum WoodType implements IStringSerializable
 	{
-		COPPER(0, "copper"),
-		ALUMINIUM(1, "aluminium"),
-		ZINC(2, "zinc"),
-		TIN(3, "tin"),
-		ANTIMONY(4, "antimony"),
-		MOLYBDENUM(5, "molybdenum"),
-		LEAD(6, "lead"),
-		SILVER(7, "silver"),
-		CHROMITE(8, "chromite"),
-		MAGNESITE(9, "magnesite");
-		
-		private static final Type[] METADATA_LOOKUP = new Type[values().length];
+		MAGNOLIA(0, "magnolia"),
+		CEDAR(1, "cedar"),
+		PINE(2, "pine"),
+		HICKORY(3, "hickory"),
+		SYCAMORE(4, "sycamore");
+	
+	
+		private static final WoodType[] METADATA_LOOKUP = new WoodType[values().length];
 		private final int metadata;
 		private final String name;
 		
-		Type(int metadata, String name)
+		WoodType(int metadata, String name)
 		{
 			this.metadata = metadata;
-			this.name= name;
+			this.name = name;
 		}
 		
 		public int getMetadata()
@@ -133,12 +124,12 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		}
 		
 		@Override
-		public String getName() 
+		public String getName()
 		{
 			return this.name;
 		}
 		
-		public static Type byMetadata(int metadata)
+		public static WoodType byMetadata(int metadata)
 		{
 			if(metadata < 0 || metadata >= METADATA_LOOKUP.length)
 			{
@@ -149,7 +140,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName
 		
 		static
 		{
-			for(Type type: values())
+			for(WoodType type : values())
 			{
 				METADATA_LOOKUP[type.getMetadata()] = type;
 			}

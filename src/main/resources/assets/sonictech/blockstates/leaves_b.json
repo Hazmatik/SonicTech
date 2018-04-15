@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "check_decay=true,decayable=true,type=hickory": { "model": "sonictech:leaves_hickory" },
+        "check_decay=true,decayable=false,type=hickory": { "model": "sonictech:leaves_hickory" },
+        "check_decay=false,decayable=true,type=hickory": { "model": "sonictech:leaves_hickory" },
+        "check_decay=false,decayable=false,type=hickory": { "model": "sonictech:leaves_hickory" },
+        
+        "check_decay=true,decayable=true,type=sycamore": { "model": "sonictech:leaves_sycamore" },
+        "check_decay=true,decayable=false,type=sycamore": { "model": "sonictech:leaves_sycamore" },
+        "check_decay=false,decayable=true,type=sycamore": { "model": "sonictech:leaves_sycamore" },
+        "check_decay=false,decayable=false,type=sycamore": { "model": "sonictech:leaves_sycamore" }
+    }
+}

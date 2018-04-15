@@ -1,0 +1,10 @@
+{
+    "variants": 
+    {
+        "type=magnolia": { "model": "sonictech:planks_magnolia" },
+        "type=cedar": { "model": "sonictech:planks_cedar" },
+        "type=pine": { "model": "sonictech:planks_pine" },
+        "type=hickory": { "model": "sonictech:planks_hickory" },
+        "type=sycamore": { "model": "sonictech:planks_sycamore" }
+    }
+}

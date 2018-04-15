@@ -1,0 +1,18 @@
+{
+    "variants": {
+        "check_decay=true,decayable=true,type=magnolia": { "model": "sonictech:leaves_magnolia" },
+        "check_decay=true,decayable=false,type=magnolia": { "model": "sonictech:leaves_magnolia" },
+        "check_decay=false,decayable=true,type=magnolia": { "model": "sonictech:leaves_magnolia" },
+        "check_decay=false,decayable=false,type=magnolia": { "model": "sonictech:leaves_magnolia" },
+        
+        "check_decay=true,decayable=true,type=cedar": { "model": "sonictech:leaves_cedar" },
+        "check_decay=true,decayable=false,type=cedar": { "model": "sonictech:leaves_cedar" },
+        "check_decay=false,decayable=true,type=cedar": { "model": "sonictech:leaves_cedar" },
+        "check_decay=false,decayable=false,type=cedar": { "model": "sonictech:leaves_cedar" },
+        
+        "check_decay=true,decayable=true,type=pine": { "model": "sonictech:leaves_pine" },
+        "check_decay=true,decayable=false,type=pine": { "model": "sonictech:leaves_pine" },
+        "check_decay=false,decayable=true,type=pine": { "model": "sonictech:leaves_pine" },
+        "check_decay=false,decayable=false,type=pine": { "model": "sonictech:leaves_pine" }
+    }
+}

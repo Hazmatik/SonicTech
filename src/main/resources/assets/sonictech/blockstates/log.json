@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "axis=y,type=magnolia": { "model": "sonictech:log_magnolia" },
+        "axis=z,type=magnolia": { "model": "sonictech:log_magnolia", "x": 90 },
+        "axis=x,type=magnolia": { "model": "sonictech:log_magnolia", "x": 90, "y": 90 },
+        "axis=none,type=magnolia": { "model": "sonictech:log_magnolia" },
+        
+        "axis=y,type=cedar": { "model": "sonictech:log_cedar" },
+        "axis=z,type=cedar": { "model": "sonictech:log_cedar", "x": 90 },
+        "axis=x,type=cedar": { "model": "sonictech:log_cedar", "x": 90, "y": 90 },
+        "axis=none,type=cedar": { "model": "sonictech:log_cedar" },
+        
+        "axis=y,type=pine": { "model": "sonictech:log_pine" },
+        "axis=z,type=pine": { "model": "sonictech:log_pine", "x": 90 },
+        "axis=x,type=pine": { "model": "sonictech:log_pine", "x": 90, "y": 90 },
+        "axis=none,type=pine": { "model": "sonictech:log_pine" },
+        
+        "axis=y,type=hickory": { "model": "sonictech:log_hickory" },
+        "axis=z,type=hickory": { "model": "sonictech:log_hickory", "x": 90 },
+        "axis=x,type=hickory": { "model": "sonictech:log_hickory", "x": 90, "y": 90 },
+        "axis=none,type=hickory": { "model": "sonictech:log_hickory" },
+        
+        "axis=y,type=sycamore": { "model": "sonictech:log_sycamore" },
+        "axis=z,type=sycamore": { "model": "sonictech:log_sycamore", "x": 90 },
+        "axis=x,type=sycamore": { "model": "sonictech:log_sycamore", "x": 90, "y": 90 },
+        "axis=none,type=sycamore": { "model": "sonictech:log_sycamore" }
+    }
+}
