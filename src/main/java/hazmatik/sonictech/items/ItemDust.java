@@ -28,9 +28,12 @@ public class ItemDust extends Item implements IHasModel, IMetaName
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) 
 	{
-		for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+		if(isInCreativeTab(tab))
 		{
-			items.add(new ItemStack(this, 1, i));
+			for(int i = 0; i < Type.METADATA_LOOKUP.length; i++)
+			{
+				items.add(new ItemStack(this, 1, i));
+			}
 		}
 	}
 	

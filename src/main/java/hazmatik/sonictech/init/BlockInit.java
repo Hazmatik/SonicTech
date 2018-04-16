@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hazmatik.sonictech.blocks.BlockOreBase;
-import hazmatik.sonictech.blocks.BlockSTLeaf;
-import hazmatik.sonictech.blocks.BlockSTLeafB;
-import hazmatik.sonictech.blocks.BlockSTLog;
-import hazmatik.sonictech.blocks.BlockSTPlank;
 import hazmatik.sonictech.blocks.BlockSTStone;
+import hazmatik.sonictech.blocks.SlabChromitite;
+import hazmatik.sonictech.blocks.SlabChromititeBrick;
+import hazmatik.sonictech.blocks.SlabGneiss;
+import hazmatik.sonictech.blocks.SlabGneissBrick;
 import hazmatik.sonictech.blocks.BlockMachineFrame;
 import hazmatik.sonictech.blocks.BlockMetal;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockInit
 {
@@ -23,8 +25,4 @@ public class BlockInit
 	public static final Block BLOCK_METAL = new BlockMetal("block");
 	public static final Block MACHINE_FRAME = new BlockMachineFrame("machine_frame");
 	
-	public static final Block PLANKS = new BlockSTPlank("planks");
-	public static final Block LOGS = new BlockSTLog("log");
-	public static final Block LEAVES_A = new BlockSTLeaf("leaves_a");
-	public static final Block LEAVES_B = new BlockSTLeafB("leaves_b");
 }

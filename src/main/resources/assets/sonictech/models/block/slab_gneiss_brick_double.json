@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "sonictech:blocks/gneiss_brick",
+        "side": "sonictech:blocks/gneiss_brick"
+    }
+}

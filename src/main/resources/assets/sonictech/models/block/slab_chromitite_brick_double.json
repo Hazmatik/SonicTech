@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "sonictech:blocks/chromitite_brick",
+        "side": "sonictech:blocks/chromitite_brick"
+    }
+}

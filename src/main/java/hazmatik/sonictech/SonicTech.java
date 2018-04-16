@@ -4,6 +4,8 @@ import java.io.File;
 
 import org.apache.logging.log4j.Logger;
 
+import hazmatik.sonictech.init.STProfessions;
+import hazmatik.sonictech.init.SlabInit;
 import hazmatik.sonictech.proxy.CommonProxy;
 import hazmatik.sonictech.util.Reference;
 import hazmatik.sonictech.util.handlers.RegistryHandler;
@@ -37,12 +39,14 @@ public class SonicTech
 		File directory = event.getModConfigurationDirectory();
 		config = new Configuration(new File(directory.getPath(), "sonictech.cfg"));
 		Config.readConfig();
+		SlabInit.init();
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
-	{
+	{		
 		RegistryHandler.initRegistries();
+		STProfessions.associateCareersAndTrades();
 	}
 	
 	@EventHandler

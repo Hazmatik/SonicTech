@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": 
+    [
+        "SSS"
+        
+
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "sonictech:st_stone",
+            "data": 3
+        }
+    },
+    
+    "result":
+    {
+        "item": "sonictech:slab_chromitite_brick",
+        "data": 0,
+        "count": 6
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "sonictech:ingot",
+      "data": 8
+      
+    },
+    "title": {
+      "translate": "itemGroup.sonictech"
+    },
+    "description": {
+      "translate": "sonictech.desc"
+    },
+    "background": "sonictech:textures/blocks/chromitite_brick.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "sonictech:ore"
+          }
+        ]
+      }
+    }
+  }
+}

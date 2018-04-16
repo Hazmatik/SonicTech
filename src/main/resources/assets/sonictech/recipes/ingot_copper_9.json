@@ -1,0 +1,23 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": 
+    [
+        "B"
+    ],
+    
+    "key":
+    {
+        "B":
+        {
+            "type": "forge:ore_dict",
+            "ore": "blockCopper"
+        }
+    },
+    
+    "result":
+    {
+        "item": "sonictech:ingot",
+        "data": 0,
+        "count": 9
+    }
+}

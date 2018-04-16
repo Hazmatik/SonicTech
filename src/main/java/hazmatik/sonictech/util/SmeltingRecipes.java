@@ -34,5 +34,10 @@ public class SmeltingRecipes
 		GameRegistry.addSmelting(new ItemStack(ItemInit.DUST, 1, 9), new ItemStack(ItemInit.INGOT, 1, 9), 1.0f);
 		GameRegistry.addSmelting(new ItemStack(ItemInit.DUST, 1, 10), new ItemStack(Items.IRON_INGOT), 1.0f);
 		GameRegistry.addSmelting(new ItemStack(ItemInit.DUST, 1, 11), new ItemStack(Items.GOLD_INGOT), 1.0f);
+		//Other
+		GameRegistry.addSmelting(new ItemStack(BlockInit.STONE, 1, 1), new ItemStack(BlockInit.STONE, 1, 0), 0.3f);
+		GameRegistry.addSmelting(new ItemStack(BlockInit.STONE, 1, 8), new ItemStack(BlockInit.STONE, 1, 7), 0.3f);
+		GameRegistry.addSmelting(new ItemStack(BlockInit.STONE, 1, 3), new ItemStack(BlockInit.STONE, 1, 5), 0.3f);
+		GameRegistry.addSmelting(new ItemStack(BlockInit.STONE, 1, 10), new ItemStack(BlockInit.STONE, 1, 12), 0.3f);
 	}
 }

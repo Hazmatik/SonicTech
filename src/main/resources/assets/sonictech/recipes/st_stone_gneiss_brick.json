@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": 
+    [
+        "CC",
+        "CC"
+
+    ],
+    
+    "key":
+    {
+        "C":
+        {
+            "item": "sonictech:st_stone",
+            "data": 7
+        }
+    },
+    
+    "result":
+    {
+        "item": "sonictech:st_stone",
+        "data": 10,
+        "count": 4
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": 
+    [
+        "SSS"
+        
+
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "sonictech:st_stone",
+            "data": 7
+        }
+    },
+    
+    "result":
+    {
+        "item": "sonictech:slab_gneiss",
+        "data": 0,
+        "count": 6
+    }
+}

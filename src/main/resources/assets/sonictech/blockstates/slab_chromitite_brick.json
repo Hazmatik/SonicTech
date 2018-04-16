@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "sonictech:bottom_slab_chromitite_brick" },
+        "half=top,variant=default": { "model": "sonictech:upper_slab_chromitite_brick" }
+    }
+}

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "sonictech:blocks/log_hickory_top",
-        "side": "sonictech:blocks/log_hickory"
-    }
-}

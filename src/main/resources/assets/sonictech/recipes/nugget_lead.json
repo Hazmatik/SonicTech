@@ -1,0 +1,23 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": 
+    [
+        "I"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "type": "forge:ore_dict",
+            "ore": "ingotLead"
+        }
+    },
+    
+    "result":
+    {
+        "item": "sonictech:nugget",
+        "data": 6,
+        "count": 9
+    }
+}

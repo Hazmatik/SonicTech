@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:vine"
+        },
+        {
+            "item": "sonictech:st_stone",
+            "data": 10
+        }
+    ],
+    "result": {
+        "item": "sonictech:st_stone",
+        "data": 11
+    }
+}

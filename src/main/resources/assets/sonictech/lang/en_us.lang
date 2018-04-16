@@ -38,6 +38,10 @@ tile.machine_frame_basic.name=Basic Sonic Frame
 tile.machine_frame_improved.name=Improved Sonic Frame
 tile.machine_frame_advanced.name=Advanced Sonic Frame
 tile.machine_frame_perfected.name=Perfected Sonic Frame
+tile.slab_gneiss_brick.name=Gneiss Bricks Slab
+tile.slab_gneiss.name=Gneiss Slab
+tile.slab_chromitite_brick.name=Chromitite Bricks Slab
+tile.slab_chromitite.name=Chromitite Slab
 
 item.ingot_aluminium.name=Aluminium Ingot
 item.ingot_antimony.name=Antimony Ingot

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "variant=default": { "model": "sonictech:slab_gneiss_double" }
+    }
+}
